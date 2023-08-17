@@ -5,6 +5,7 @@ pub enum Flag {
     C = 0x10,
 }
 
+#[derive(Debug)]
 pub struct Registers {
     pub a: u8,
     pub b: u8,

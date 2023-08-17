@@ -33,6 +33,8 @@ impl Cpu {
     pub fn step(&mut self, mmu: &mut Mmu) -> u8 {
         let op_code = mmu.read_opcode(self.registers.pc);
 
+        println!("{:?}", self.registers);
+
         let instruction = match instructions::get_instruction_by_op_code(&op_code) {
             Some(instruction) => instruction,
             None => {

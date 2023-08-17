@@ -1,4 +1,4 @@
-#![windows_subsystem = "windows"]
+//#![windows_subsystem = "console"]
 
 use crate::config::config_storage::ConfigStorage;
 use crate::graphics::gameboy_screen::{GameboyScreen, MENU_BAR_HEIGHT};
@@ -19,6 +19,7 @@ pub enum EmulationSignal {
     Quit,
 }
 pub fn main() {
+    println!("{:?}", "HMMMM");
     let config_storage = ConfigStorage::create_from_file("gbemulator.toml".to_string()).unwrap();
     let mut window =
         GraphicsWindow::new(160 * 3, (144 * 3) + MENU_BAR_HEIGHT as u32, &config_storage);
