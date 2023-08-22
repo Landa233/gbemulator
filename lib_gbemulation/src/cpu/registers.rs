@@ -1,3 +1,5 @@
+use std::fmt;
+
 pub enum Flag {
     Z = 0x80,
     N = 0x40,
@@ -17,6 +19,16 @@ pub struct Registers {
     pub f: u8,
     pub pc: u16,
     pub sp: u16,
+}
+
+impl fmt::Display for Registers {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(
+            f,
+            "AF: 0x{:02X}{:02X}, BC: 0x{:02X}{:02X}, DE: 0x{:02X}{:02X}, HL: 0x{:02X}{:02X}, PC: {}, SP: 0x{:02X}",
+            self.a, self.f, self.b, self.c, self.d, self.e, self.h, self.l, self.pc, self.sp
+        )
+    }
 }
 
 impl Registers {
